@@ -1,0 +1,29 @@
+# This file is used by development branch
+# Use the official image as a parent image
+FROM node:18.17.1-slim
+
+# Install git to avoid npm install errors
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y git
+
+# Set the working directory
+WORKDIR /usr/src/app
+
+# Copy the file from your host to your current location
+COPY package*.json ./
+
+# Run the command inside your image filesystem
+RUN npm install
+
+# PM2 install
+RUN npm install pm2 -g
+
+# Inform Docker that the container is listening on the specified port at runtime.
+EXPOSE 3230
+
+# Copy the rest of your app's source code from your host to your image filesystem.
+COPY . .
+
+# Generate prisma data and starts api
+ENTRYPOINT npx prisma generate && npm run dev

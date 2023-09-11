@@ -1,0 +1,7 @@
+{
+  "AUTH_FAILED": "Authentication Failed! User is not authorized.",
+  "NOT_FOUND": "not found!",
+  "PASS_NOT_EQ": "Passwords aren't match!",
+  "UNEXPECTED_ERROR": "Unexpected error!",
+  "USER_LOGGED": "User is already logged-in!"
+}

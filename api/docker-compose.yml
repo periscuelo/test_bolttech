@@ -1,0 +1,88 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: bolttech-mysql
+    command: --sql-mode="" --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=toor
+      - MYSQL_DATABASE=bolttech
+      - MYSQL_USER=bolttech
+      - MYSQL_PASSWORD=bolttech
+    volumes:
+      - mysqldata:/var/lib/mysql
+      - ./docker/mysql-dump:/docker-entrypoint-initdb.d
+    labels:
+      # http with redirection
+      - traefik.http.middlewares.redirect-middleware.redirectscheme.scheme=https
+      # https
+      - traefik.http.routers.db.entrypoints=websecure
+      - traefik.http.routers.db.tls=true
+      - traefik.http.routers.db.rule=Host(`db-local.bolttech.com.br`)
+    networks:
+      default:
+        aliases:
+          - db-local.bolttech.com.br
+    healthcheck:
+      test: mysqladmin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
+      timeout: 10s
+      retries: 10
+    depends_on:
+      - traefik
+
+  api:
+    build:
+      context: ./
+      dockerfile: Dockerfile.dev
+    container_name: bolttech-api
+    command: "browser-sync start --proxy db-local.bolttech.com.br"
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    working_dir: /usr/src/app
+    stdin_open: true
+    tty: true
+    environment:
+      - APP_PORT=3230
+    restart: always
+    ports:
+      - 3230:3230
+      - 9229:9229
+    labels:
+      # http with redirection
+      - traefik.http.middlewares.redirect-middleware.redirectscheme.scheme=https
+      # https
+      - traefik.http.routers.api.entrypoints=websecure
+      - traefik.http.routers.api.tls=true
+      - traefik.http.routers.api.rule=Host(`api-local.bolttech.com.br`) && PathPrefix(`/v1`)
+      - traefik.http.routers.api.middlewares=api-bolttech-rewrite
+      - traefik.http.middlewares.api-bolttech-rewrite.stripprefix.prefixes=/v1
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  traefik:
+    container_name: bolttech-traefik
+    image: traefik:v2.1.4
+    command:
+      - --entrypoints.web.address=:80
+      - --entrypoints.websecure.address=:443
+      - --providers.docker=true
+      - --providers.file.directory=/docker/config
+      - --api.insecure=true
+    restart: always
+    ports:
+      - 80:80
+      - 8080:8080
+      - 443:443
+    volumes:
+      - ./docker/certificates/:/docker/certificates/:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./docker/config/traefik.yml:/docker/config/traefik.yml:ro
+
+volumes:
+  mysqldata:
