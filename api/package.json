@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/periscuelo/bolttech.git"
+    "url": "git+https://github.com/periscuelo/test_bolttech.git"
   },
   "author": "Ibrahim Brumate",
   "license": "ISC",
@@ -46,9 +46,9 @@
     "standard": "^17.1.0"
   },
   "bugs": {
-    "url": "https://github.com/periscuelo/bolttech/issues"
+    "url": "https://github.com/periscuelo/test_bolttech/issues"
   },
-  "homepage": "https://github.com/periscuelo/bolttech#readme",
+  "homepage": "https://github.com/periscuelo/test_bolttech/tree/main/api/#readme",
   "jest": {
     "bail": true,
     "verbose": true,
