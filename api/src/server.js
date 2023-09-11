@@ -6,7 +6,6 @@ const fastify = require("fastify")({
   ajv: {
     customOptions: {
       allErrors: true,
-      jsonPointers: true,
     },
     plugins: [require("ajv-errors")],
   },
@@ -14,16 +13,15 @@ const fastify = require("fastify")({
   logger: logger[env],
 });
 
-fastify.register(require("fastify-jwt"), {
+fastify.register(require("@fastify/jwt"), {
   secret: jwt.secret,
 });
 
-fastify.register(require("./plugins/sentry"));
-fastify.register(require("fastify-etag"));
-fastify.register(require("fastify-helmet"), { contentSecurityPolicy: false });
-fastify.register(require("fastify-cors"), { origin: "*" });
-fastify.register(require("fastify-formbody"));
-fastify.register(require("fastify-multipart"));
+fastify.register(require("@fastify/etag"));
+fastify.register(require("@fastify/helmet"), { contentSecurityPolicy: false });
+fastify.register(require("@fastify/cors"), { origin: "*" });
+fastify.register(require("@fastify/formbody"));
+fastify.register(require("@fastify/multipart"));
 fastify.register(require("./resources/routes"));
 fastify.register(require("./hooks"));
 

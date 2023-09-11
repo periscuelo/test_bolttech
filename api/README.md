@@ -31,8 +31,8 @@ We not use classes in this project, but we have some concepts is good to know to
 ### _1 Configuration_
 
 1.  Edit your hosts file with:
-    > 127.0.0.1 api-local.bolttech.com.br  
-    > 127.0.0.1 db-local.bolttech.com.br
+    > 127.0.0.1 api-local.bolttech.com  
+    > 127.0.0.1 db-local.bolttech.com
 2.  Create env files:
     > .env  
     > .env.test
@@ -69,7 +69,7 @@ Also if you are using DockerDesktop on MAC OS OR Windows, you can use the dashbo
 
 ### _4 Testing_
 
-Access this url on your browser: "https://api-local.bolttech.com.br/v1"  
+Access this url on your browser: "https://api-local.bolttech.com/v1"  
 If returns the message "Welcome to API Bolttech V1" that's working perfectly!
 
 ### _5 Thunder Client_

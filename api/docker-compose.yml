@@ -22,11 +22,11 @@ services:
       # https
       - traefik.http.routers.db.entrypoints=websecure
       - traefik.http.routers.db.tls=true
-      - traefik.http.routers.db.rule=Host(`db-local.bolttech.com.br`)
+      - traefik.http.routers.db.rule=Host(`db-local.bolttech.com`)
     networks:
       default:
         aliases:
-          - db-local.bolttech.com.br
+          - db-local.bolttech.com
     healthcheck:
       test: mysqladmin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
       timeout: 10s
@@ -39,7 +39,7 @@ services:
       context: ./
       dockerfile: Dockerfile.dev
     container_name: bolttech-api
-    command: "browser-sync start --proxy db-local.bolttech.com.br"
+    command: "browser-sync start --proxy db-local.bolttech.com"
     volumes:
       - ./:/usr/src/app
       - /usr/src/app/node_modules
@@ -58,7 +58,7 @@ services:
       # https
       - traefik.http.routers.api.entrypoints=websecure
       - traefik.http.routers.api.tls=true
-      - traefik.http.routers.api.rule=Host(`api-local.bolttech.com.br`) && PathPrefix(`/v1`)
+      - traefik.http.routers.api.rule=Host(`api-local.bolttech.com`) && PathPrefix(`/v1`)
       - traefik.http.routers.api.middlewares=api-bolttech-rewrite
       - traefik.http.middlewares.api-bolttech-rewrite.stripprefix.prefixes=/v1
     depends_on:
