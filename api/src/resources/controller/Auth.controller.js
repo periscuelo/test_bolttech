@@ -77,7 +77,7 @@ const _verifyToken = async (token) => {
 controller.login = async (req, res) => {
   try {
     const { username, password } = req.body;
-    const user = await userRepository.findFirst({ OR: [{ email: username }, { user: username }] });
+    const user = await userRepository.findFirst({ email: username });
     const isPasswordMatch = user ? await bcrypt.compare(password, user.password) : false;
 
     if (user && isPasswordMatch) {
