@@ -14,12 +14,12 @@ We use here some technologies like:
 - [**MySQL 5.7**](https://www.mysql.com)
 - [**Docker**](https://www.docker.com)
 
-- [How to setup this API on my local machine?](https://github.com/periscuelo/bolttech-api#-steps-to-setup)
-- [How it's our gitflow here?](https://github.com/periscuelo/bolttech-api#-gitflow)
-- [How to validate params on endpoints?](https://github.com/periscuelo/bolttech-api#-endpoint-validation)
-- [How to use prisma to make migrations?](https://github.com/periscuelo/bolttech-api#-prisma-basics)
-- [How to scan the project with sonarqube?](https://github.com/periscuelo/bolttech-api#-sonarqube-basics)
-- [Can I see if the environments is working?](https://github.com/periscuelo/bolttech-api#-useful-links)
+- [How to setup this API on my local machine?](https://github.com/periscuelo/test_bolttech/tree/main/api#-steps-to-setup)
+- [How it's our gitflow here?](https://github.com/periscuelo/test_bolttech/tree/main/api#-gitflow)
+- [How to validate params on endpoints?](https://github.com/periscuelo/test_bolttech/tree/main/api#-endpoint-validation)
+- [How to use prisma to make migrations?](https://github.com/periscuelo/test_bolttech/tree/main/api#-prisma-basics)
+- [How to scan the project with sonarqube?](https://github.com/periscuelo/test_bolttech/tree/main/api#-sonarqube-basics)
+- [Can I see if the environments is working?](https://github.com/periscuelo/test_bolttech/tree/main/api#-useful-links)
 
 We not use classes in this project, but we have some concepts is good to know to avoid break the pattern of API.
 
