@@ -143,7 +143,6 @@ controller.refreshToken = async (req, res) => {
     if (decoded.refresh) {
       const user = {
         id: decoded.sub,
-        tenantId: decoded.subTI,
       };
 
       const { userToken, refreshToken } = await _generateToken(user);
