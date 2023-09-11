@@ -1,0 +1,24 @@
+{
+    "client": "Thunder Client",
+    "environmentName": "Bolttech V1 Local",
+    "dateExported": "2023-09-11T10:20:48.827Z",
+    "version": "1.0",
+    "variables": [
+        {
+            "name": "url",
+            "value": "https://api-local.bolttech.com/v1"
+        },
+        {
+            "name": "token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI4NmU0N2ZjYi04YmIzLTQyNmMtOTkzMi1mZDYyZTlhNDM2NjciLCJzdWJUSSI6IjI2ZmRjYjMxLTU5YWUtNGY1ZC1hOTNmLTEwNzdmZjlhMzQ1OSIsInJlZnJlc2giOmZhbHNlLCJpYXQiOjE2MjA0Mjg5MjQsImV4cCI6MTYyMDQyOTc2NH0.-bRy_9W-X-spumYBX4fWukImwHDt47YeV4q9VqbZj5Q"
+        },
+        {
+            "name": "refreshToken",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI4NmU0N2ZjYi04YmIzLTQyNmMtOTkzMi1mZDYyZTlhNDM2NjciLCJzdWJUSSI6IjI2ZmRjYjMxLTU5YWUtNGY1ZC1hOTNmLTEwNzdmZjlhMzQ1OSIsInJlZnJlc2giOnRydWUsImlhdCI6MTYyMDQyODkyNCwiZXhwIjoxNjIwNDI5ODI0fQ.DtsW0qN_B_ncP-SFAAA0cbJ2t1WA2Aa0bpGuFzLMsNU"
+        },
+        {
+            "name": "forgotToken",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtb2NrMUBvaXNhbWkuY29tIiwicmVmcmVzaCI6ZmFsc2UsImlhdCI6MTYyMDQyODUyNCwiZXhwIjoxNjIwNDI4ODI0fQ.fwfbcTvwzmtD3xWeWIB_CTeKwhFrODQqMy8nWauzJgM"
+        }
+    ]
+}

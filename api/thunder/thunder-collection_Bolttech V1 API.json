@@ -1,0 +1,152 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Bolttech V1 API",
+    "dateExported": "2023-09-11T10:20:40.939Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "888d4db8-0a3b-4ffd-8f9f-38b6ed0cde2d",
+            "colId": "6c63e476-0b99-4c71-8860-5c105c3ab7d3",
+            "containerId": "",
+            "name": "/",
+            "url": "{{url}}/",
+            "method": "GET",
+            "sortNum": 5000,
+            "created": "2023-09-11T10:17:51.313Z",
+            "modified": "2023-09-11T10:17:51.313Z",
+            "headers": [],
+            "tests": []
+        },
+        {
+            "_id": "8580593b-38c0-408c-8188-8ba5b93a4301",
+            "colId": "6c63e476-0b99-4c71-8860-5c105c3ab7d3",
+            "containerId": "",
+            "name": "/login",
+            "url": "{{url}}/login",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-09-11T10:17:51.315Z",
+            "modified": "2023-09-11T10:18:40.617Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"username\": \"mock1@bolttech.com\",\n    \"password\": \"Mock123!\"\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "set-env-var",
+                    "custom": "json.token",
+                    "action": "setto",
+                    "value": "{{token}}"
+                },
+                {
+                    "type": "set-env-var",
+                    "custom": "json.refreshToken",
+                    "action": "setto",
+                    "value": "{{refreshToken}}"
+                }
+            ]
+        },
+        {
+            "_id": "5c4cfd7c-b424-4085-a8cd-9e8d2ebf33cf",
+            "colId": "6c63e476-0b99-4c71-8860-5c105c3ab7d3",
+            "containerId": "",
+            "name": "/users",
+            "url": "{{url}}/users",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-09-11T10:17:51.316Z",
+            "modified": "2023-09-11T10:17:51.316Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "147d1426-6879-41eb-9fb3-0532b930e40b",
+            "colId": "6c63e476-0b99-4c71-8860-5c105c3ab7d3",
+            "containerId": "",
+            "name": "/users/page-limit/1-2",
+            "url": "{{url}}/users/page-limit/1-2",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-09-11T10:17:51.317Z",
+            "modified": "2023-09-11T10:17:51.317Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "df16059f-17d8-4219-9731-805a7ef4277b",
+            "colId": "6c63e476-0b99-4c71-8860-5c105c3ab7d3",
+            "containerId": "",
+            "name": "/logout",
+            "url": "{{url}}/logout",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-09-11T10:17:51.318Z",
+            "modified": "2023-09-11T10:17:51.318Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{token}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "14b2b160-0413-4f52-9ab7-8bf483a28419",
+            "colId": "6c63e476-0b99-4c71-8860-5c105c3ab7d3",
+            "containerId": "",
+            "name": "/refresh-token",
+            "url": "{{url}}/refresh-token",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-09-11T10:17:51.320Z",
+            "modified": "2023-09-11T10:17:51.320Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"token\": \"{{refreshToken}}\"\n}"
+            },
+            "tests": [
+                {
+                    "type": "set-env-var",
+                    "custom": "json.token",
+                    "action": "setto",
+                    "value": "{{token}}"
+                },
+                {
+                    "type": "set-env-var",
+                    "custom": "json.refreshToken",
+                    "action": "setto",
+                    "value": "{{refreshToken}}"
+                }
+            ]
+        },
+        {
+            "_id": "07f702dc-80a9-433f-9c70-9549c5b212a7",
+            "colId": "6c63e476-0b99-4c71-8860-5c105c3ab7d3",
+            "containerId": "",
+            "name": "/verify-token",
+            "url": "{{url}}/verify-token",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-09-11T10:17:51.322Z",
+            "modified": "2023-09-11T10:17:51.322Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInN1YlRJIjoxLCJyZWZyZXNoIjp0cnVlLCJpYXQiOjE2MTg4NzExMzEsImV4cCI6MTYxODg3MjAzMX0.sRVS-m9AMIs4C6tB3pJwUGwgFrDLu5-ahi711h9zciE\"\r\n}"
+            },
+            "tests": []
+        }
+    ]
+}
